@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ddd-example-workspace
+  datasource:
+    url: jdbc:mysql://10.92.35.21:31306/ddd_example?useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Hongkong&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: Aa123456
+server:
+  port: 8081

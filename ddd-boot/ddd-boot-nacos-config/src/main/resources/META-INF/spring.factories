@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.github.chensheng.dddboot.nacos.config.autoconfigure.NacosConfigAutoConfiguration
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  io.github.chensheng.dddboot.nacos.config.autoconfigure.NacosConfigEnvironmentProcessor,\
+  io.github.chensheng.dddboot.nacos.config.support.MultiProfilesYamlConfigParseSupport
+org.springframework.context.ApplicationListener=\
+  io.github.chensheng.dddboot.nacos.config.logging.NacosLoggingListener

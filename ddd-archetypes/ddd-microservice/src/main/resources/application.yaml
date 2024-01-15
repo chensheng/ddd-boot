@@ -1,0 +1,13 @@
+nacos:
+  config:
+    type: yaml
+    server-addr: ${NACOS_URL:127.0.0.1:8848}
+    namespace: ${NACOS_NAMESPACE:dev}
+    data-id: ddd-example
+    auto-refresh: true
+    group: ${NACOS_GROUP:DEFAULT_GROUP}
+    username: ${NACOS_USERNAME:nacos}
+    password: ${NACOS_PASSWORD:xxxxxx}
+    bootstrap:
+      enable: true
+      log-enable: true

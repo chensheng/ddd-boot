@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://nacos.io/schema/nacos"
+            targetNamespace="http://nacos.io/schema/nacos">
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+    <xsd:annotation>
+        <xsd:documentation>
+            <![CDATA[ Nacos Framework Schema ]]>
+        </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:element name="annotation-driven">
+        <xsd:annotation>
+            <xsd:documentation>
+                <![CDATA[
+	            Activates various Nacos Spring's annotations :
+	            @NacosInjected
+	            @NacosConfigListener
+	            @NacosPropertySource
+	            @NacosPropertySources
+	            @NacosConfigProperties / @NacosProperty / @NacosIgnore
+			]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:element name="global-properties">
+        <xsd:annotation>
+            <xsd:documentation>
+                <![CDATA[
+                Register Nacos global Properties whose values are configured from attributes.
+                ]]>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute name="endpoint" default="${nacos.endpoint:}"/>
+            <xsd:attribute name="namespace" default="${nacos.namespace:}"/>
+            <xsd:attribute name="access-key" default="${nacos.access-key:}"/>
+            <xsd:attribute name="secret-key" default="${nacos.secret-key:}"/>
+            <xsd:attribute name="server-addr" default="${nacos.server-addr:}"/>
+            <xsd:attribute name="context-path" default="${nacos.context-path:}"/>
+            <xsd:attribute name="cluster-name" default="${nacos.cluster-name:}"/>
+            <xsd:attribute name="encode" default="${nacos.encode:UTF-8}"/>
+            <xsd:attribute name="username" default="${nacos.username:}"/>
+            <xsd:attribute name="password" default="${nacos.password:}"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="property-source">
+        <xsd:annotation>
+            <xsd:documentation>
+                <![CDATA[
+                Add Nacos property source
+                ]]>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:attribute name="name" default=""/>
+            <xsd:attribute name="group-id" default="DEFAULT_GROUP"/>
+            <xsd:attribute name="data-id" use="required"/>
+            <xsd:attribute name="auto-refreshed" default="false"/>
+            <xsd:attribute name="first" default="false"/>
+            <xsd:attribute name="before" default=""/>
+            <xsd:attribute name="after" default=""/>
+            <xsd:attribute name="type" default="properties"/>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

@@ -1,0 +1,1 @@
+package org.example.infrastructure.common;

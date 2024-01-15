@@ -1,0 +1,1 @@
+package org.example.infrastructure.repository.example.microservice.response;

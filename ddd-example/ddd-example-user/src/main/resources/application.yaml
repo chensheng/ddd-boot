@@ -1,0 +1,35 @@
+nacos:
+  config:
+    type: yaml
+    server-addr: ${NACOS_URL:127.0.0.1:8848}
+    namespace: ${NACOS_NAMESPACE:dev}
+    data-id: ddd-example-user
+    auto-refresh: true
+    group: ${NACOS_GROUP:DEFAULT_GROUP}
+    username: ${NACOS_USERNAME:nacos}
+    password: ${NACOS_PASSWORD:xxxxxx}
+    bootstrap:
+      enable: true
+      log-enable: true
+
+#spring:
+#  application:
+#    name: ddd-example-user
+#  datasource:
+#    url: jdbc:mysql://127.0.0.1:3306/ddd_example?useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Hongkong&useSSL=false&allowPublicKeyRetrieval=true
+#    username: root
+#    password: xxxxxx
+#openfeign:
+#  base-package: org.example.ddduser.infrastructure.repository.microservice
+#  httpclient:
+#    max-conn-total: 200
+#    max-conn-per-route: 50
+#    tcp-no-delay: true
+#    socket-timeout-millis: 1000
+#    connect-timeout-millis: 1000
+#    connection-request-timeout-millis: 200
+#microservice:
+#  workspace:
+#    url: http://localhost:8081
+#    access-key: 123
+#    secret-key: 456

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.ddduser.infrastructure.repository.database.UserMapper">
+    <resultMap id="UserProfileDto" type="org.example.ddduser.application.dto.result.UserProfile"/>
+
+    <select id="selectProfilePage" resultMap="UserProfileDto">
+        select
+            u.id,
+            u.username,
+            ud.nick_name,
+            ud.avatar,
+            ud.age,
+            ud.gender,
+            concat(ud.country, ud.province, ud.city, ud.county, ud.detail_address) address
+        from user u
+            left join user_detail ud on ud.user_id = u.id
+        <where>
+            <if test="@io.github.chensheng.dddboot.tools.text.TextUtil@isNotBlank(username)">
+                u.username = #{username}
+            </if>
+            <if test="status != null">
+                and u.status = #{status}
+            </if>
+            <if test="gender != null">
+                and ud.gender = #{gender}
+            </if>
+            <if test="@io.github.chensheng.dddboot.tools.text.TextUtil@isNotBlank(nickNameLike)">
+                and ud.nick_name like concat('%', #{nickNameLike}, '%')
+            </if>
+            <if test="ageFrom != null">
+                and ud.age >= #{ageFrom}
+            </if>
+            <if test="ageTo != null">
+                <![CDATA[
+                and ud.age <= #{ageTo}
+                ]]>
+            </if>
+        </where>
+    </select>
+</mapper>
